@@ -4,7 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +17,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        val rulesAdapter = RulesAdapter(emptyList())
+        val rulesViewModel: RulesViewModel by viewModels()
+        val ruleRepository = RuleRepository()
+
+        findViewById<RecyclerView>(R.id.list).apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(context)
+            adapter = rulesAdapter
+        }
+
+        rulesViewModel.rules.observe(this, Observer<List<Rule>> { rules ->
+            rulesAdapter.data = rules
+            rulesAdapter.notifyDataSetChanged()
+        })
+
+        rulesViewModel.ruleRepository = ruleRepository
 
         fab.setOnClickListener { view ->
             // TODO add rule
