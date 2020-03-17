@@ -11,6 +11,9 @@ private val mediaType = "application/json; charset=utf-8".toMediaType()
 
 fun trigger(effect: LedEffect) {
     Thread {
+
+        Log.i(TAG, "Payload: ${effect.toJSON()}")
+
         val body = effect.toJSON().toString().toRequestBody(mediaType)
 
         val request = Request.Builder()

@@ -16,10 +16,10 @@ fun colorToArray(color: Int): JsonArray {
     return array
 }
 
-class Flash(val color: Int, val delayMs: Int, val times: Int) : LedEffect("flash") {
+class Flash(val color: Int, val delay: Float, val times: Int) : LedEffect("flash") {
     override fun toJSON(): JsonObject {
         val json = JsonObject()
-        json.addProperty("delay", delayMs)
+        json.addProperty("delay", delay)
         json.addProperty("flashes", times)
         json.add("color", colorToArray(color))
         return json
