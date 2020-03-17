@@ -33,11 +33,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.google.android.material:material:1.1.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation("com.squareup.okhttp3:okhttp:4.4.0")
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.github.j4velin.colorpicker:colorpicker:1.20.6'
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.fragment:fragment-ktx:1.2.1'
+    implementation 'androidx.fragment:fragment-ktx:1.2.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
