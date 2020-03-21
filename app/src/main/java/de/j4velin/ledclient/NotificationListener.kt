@@ -12,17 +12,17 @@ class NotificationListener : NotificationListenerService() {
         Log.i(TAG, "notification posted: $sbn")
         sbn?.packageName?.let {
             when {
-                it.contains("gmail", true) -> {
+                it.equals("com.google.android.gm", true) -> {
                     Log.i(TAG, "gmail received")
-                    trigger(Flash(Color.RED, 1.5f, 5))
+                    trigger(Flash(Color.RED, 1f, 3))
                 }
                 it.contains("whatsapp", true) -> {
                     Log.i(TAG, "whatsapp received")
-                    trigger(Flash(Color.GREEN, 0.5f, 5))
+                    trigger(Snake(Color.GREEN, 0.1f, 5))
                 }
                 it.contains("telegram", true) -> {
                     Log.i(TAG, "telegram received")
-                    trigger(Flash(Color.CYAN, 1f, 5))
+                    trigger(Kitt(Color.CYAN, 0.1f, 5, 2))
                 }
             }
         }

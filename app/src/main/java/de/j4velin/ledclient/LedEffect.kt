@@ -25,3 +25,24 @@ class Flash(val color: Int, val delay: Float, val times: Int) : LedEffect("flash
         return json
     }
 }
+
+class Snake(val color: Int, val delay: Float, val length: Int) : LedEffect("snake") {
+    override fun toJSON(): JsonObject {
+        val json = JsonObject()
+        json.addProperty("delay", delay)
+        json.addProperty("length", length)
+        json.add("color", colorToArray(color))
+        return json
+    }
+}
+
+class Kitt(val color: Int, val delay: Float, val length: Int, val loops: Int) : LedEffect("kitt") {
+    override fun toJSON(): JsonObject {
+        val json = JsonObject()
+        json.addProperty("delay", delay)
+        json.addProperty("length", length)
+        json.addProperty("loops", loops)
+        json.add("color", colorToArray(color))
+        return json
+    }
+}
