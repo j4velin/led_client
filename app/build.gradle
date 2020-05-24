@@ -38,6 +38,7 @@ dependencies {
     implementation 'com.github.j4velin.colorpicker:colorpicker:1.20.6'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.fragment:fragment-ktx:1.2.2'
+    implementation 'de.j4velin.LedClientLib:lib:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
